@@ -1,0 +1,8 @@
+OPTIONS  MIP = CPLEX;
+Set i /1*36/;
+Set t /1*110/;
+Set v /1*3/;
+Set k /0*10/;
+Set p /1*3/;
+alias(i, j);
+alias(t, s);
