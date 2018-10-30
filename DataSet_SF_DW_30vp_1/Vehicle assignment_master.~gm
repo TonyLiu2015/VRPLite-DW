@@ -25,7 +25,7 @@ Model AVs_assignment /all/;
 solve AVs_assignment using MIP minimizing z_min;
 display lamda.l;
 
-FILE csv_capacity Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_10vp\GAMS_arc_cap_marg.csv/;
+FILE csv_capacity Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_30vp\GAMS_arc_cap_marg.csv/;
 csv_capacity.pc = 5;
 PUT csv_capacity;
 
@@ -34,21 +34,21 @@ set iteration/1*1/;
 loop((iteration),put @5, 'from_node', @10, 'to_node', @20, 'from_time',  @30, 'to_time', @40,'marginal_value'/);
 loop((i,j,t,s)$((cap(i,j,t,s) >0.1)),put @5, i.tl, @10, j.tl, @20, t.tl,  @30, s.tl, @40, cap_constraint_new.m(i,j,t,s)/);
 
-FILE csv_passenger Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_10vp\GAMS_passenger_pickup_marg.csv/;
+FILE csv_passenger Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_30vp\GAMS_passenger_pickup_marg.csv/;
 csv_passenger.pc = 5;
 PUT csv_passenger;
 
 loop((iteration),put @5, 'passenger', @10, 'pickup marginal_value'/);
 loop((p),put @5, p.tl, @10, pickup_constraint.m(p)/);
 
-FILE csv_vehicle Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_10vp\GAMS_vehicle_weight_marg.csv/;
+FILE csv_vehicle Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_30vp\GAMS_vehicle_weight_marg.csv/;
 csv_vehicle.pc = 5;
 PUT csv_vehicle;
 
 loop((iteration),put @5, 'vehicle', @10, 'vehicle_weight marginal_value'/);
 loop((v),put @5, v.tl, @10, weights.m(v)/);
 
-FILE csv_solution Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_10vp\GAMS_vehicle_path_solution.csv/;
+FILE csv_solution Report File /C:\Users\jliu215\Desktop\DW-Interaction\Presentation_DOT\SF_DW_30vp\GAMS_vehicle_path_solution.csv/;
 csv_solution.pc = 5;
 PUT csv_solution;
 

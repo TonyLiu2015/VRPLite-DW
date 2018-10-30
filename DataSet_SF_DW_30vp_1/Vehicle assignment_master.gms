@@ -17,7 +17,7 @@ weights(v)
 
 obj_min.. z_min =e= sum((v,k),c(v,k)*lamda(v,k));
 pickup_constraint(p).. sum((v,k),lamda(v,k)*delta(v,k,p))=e=1;
-cap_constraint_new(i,j,t,s)$(cap(i,j,t,s)>0.1) .. sum((v,k)$(c(v,k)>0.1),beta(v,k,i,j,t,s)*x(v,k)*lamda(v,k))=l=1000;
+cap_constraint_new(i,j,t,s)$(cap(i,j,t,s)>0.1) .. sum((v,k)$(c(v,k)>0.1),beta(v,k,i,j,t,s)*x(v,k)*lamda(v,k))=l=cap(i,j,t,s);
 weights(v).. sum(k,lamda(v,k))=e=1;
 
 Model AVs_assignment /all/;
